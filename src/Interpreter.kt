@@ -1,6 +1,3 @@
-import kotlin.random.Random
-import kotlin.text.split
-
 abstract class Rule(private val from: String) {
     protected abstract fun runSubst(): String
 
@@ -13,7 +10,7 @@ abstract class Rule(private val from: String) {
             }
         }
         return if (matchIndices.size> 0) {
-            val index = matchIndices[Random.nextInt(matchIndices.size)]
+            val index = matchIndices.random()
             str.replaceRange(index, index + from.length, runSubst())
         } else {
             null
