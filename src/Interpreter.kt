@@ -9,7 +9,7 @@ abstract class Rule(private val from: String) {
                 matchIndices.add(i)
             }
         }
-        return if (matchIndices.size> 0) {
+        return if (matchIndices.isNotEmpty()) {
             val index = matchIndices.random()
             str.replaceRange(index, index + from.length, runSubst())
         } else {
